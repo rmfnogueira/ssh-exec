@@ -11,9 +11,10 @@ struct Cli {
     #[arg(short, long)]
     username: String,
 
-    /// User password, must be the same for all devices for now
+    /// User password, must be the same for all devices for now.
     #[arg(short, long)]
     password: String,
+    // TODO => Implement rpassword to pass value encrypted on command line.
 
     /// Command to be run in ssh session
     #[arg(short, long, default_value = "ls")]
@@ -22,8 +23,11 @@ struct Cli {
     /// Ipv4Adress and TCP Port
     #[arg(short, long, default_value = "127.0.0.1:22")]
     socket: String
+    // TODO => Accept multiple sockets to run commands on, assuming same username and password on multiple systems
 }
 
+
+/// ssh-exec
 fn main() -> Result<(), std::io::Error> {
     let args = Cli::parse();
 
