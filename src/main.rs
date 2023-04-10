@@ -1,6 +1,7 @@
 use std::net::TcpStream;
 use std::io::prelude::*;
 use ssh2::Session;
+use clap::Parser;
 
 fn main() -> Result<(), std::io::Error> {
     let tcp_stream = TcpStream::connect("")?;
@@ -23,5 +24,6 @@ Ok(())
 
 #[test]
 fn runs() {
+
     
 }
