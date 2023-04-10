@@ -1,7 +1,8 @@
 use std::net::TcpStream;
 use std::io::prelude::*;
 use ssh2::Session;
-use clap::{Parser};
+use clap::Parser;
+use rpassword::read_password;
 
 /// Arguments
 #[derive(Parser, Debug)]
@@ -10,11 +11,6 @@ struct Cli {
     /// Username with permission to connect via ssh
     #[arg(short, long)]
     username: String,
-
-    /// User password, must be the same for all devices for now.
-    #[arg(short, long)]
-    password: String,
-    // TODO => Implement rpassword to pass value encrypted on command line.
 
     /// Command to be run in ssh session
     #[arg(short, long, default_value = "ls")]
@@ -29,15 +25,20 @@ struct Cli {
 
 /// ssh-exec
 fn main() -> Result<(), std::io::Error> {
+    
     let args = Cli::parse();
-
+    
+    // handle and make mandatory, as argument
+    println!("Please enter {}'s password", &args.username);
+    let pass =  read_password()?;
+    
     let tcp_stream = TcpStream::connect(args.socket.to_string())?;
 // todo : add parameters or args via cli
 
     let mut tcp_session = Session::new()?;
     tcp_session.set_tcp_stream(tcp_stream);
     tcp_session.handshake()?;
-    tcp_session.userauth_password(&args.username.to_string(), &args.password.to_string())?; // get password on command line, all other args in config file
+    tcp_session.userauth_password(&args.username.to_string(), &pass)?; // get password on command line, all other args in config file
     let mut tcp_channel = tcp_session.channel_session()?;
     tcp_channel.exec(&args.command)?;
     let mut s = String::new();
