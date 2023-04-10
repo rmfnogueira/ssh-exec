@@ -1,29 +1,51 @@
 use std::net::TcpStream;
 use std::io::prelude::*;
 use ssh2::Session;
-use clap::Parser;
+use clap::{Parser};
+
+/// Arguments
+#[derive(Parser, Debug)]
+#[command(author, version, about, long_about = None)]
+struct Cli {
+    /// Username with permission to connect via ssh
+    #[arg(short, long)]
+    username: String,
+
+    /// User password, must be the same for all devices for now
+    #[arg(short, long)]
+    password: String,
+
+    /// Command to be run in ssh session
+    #[arg(short, long, default_value = "ls")]
+    command: String,
+
+    /// Ipv4Adress and TCP Port
+    #[arg(short, long, default_value = "127.0.0.1:22")]
+    socket: String
+}
 
 fn main() -> Result<(), std::io::Error> {
-    let tcp_stream = TcpStream::connect("")?;
+    let args = Cli::parse();
+
+    let tcp_stream = TcpStream::connect(args.socket.to_string())?;
 // todo : add parameters or args via cli
 
     let mut tcp_session = Session::new()?;
     tcp_session.set_tcp_stream(tcp_stream);
     tcp_session.handshake()?;
-    tcp_session.userauth_password("rui", "")?;
+    tcp_session.userauth_password(&args.username.to_string(), &args.password.to_string())?; // get password on command line, all other args in config file
     let mut tcp_channel = tcp_session.channel_session()?;
-    tcp_channel.exec("ls")?;
+    tcp_channel.exec(&args.command)?;
     let mut s = String::new();
     tcp_channel.read_to_string(&mut s)?;
     println!("{}", s);
     tcp_channel.wait_close()?;
-    println!("{}", tcp_channel.exit_status()?);
+    // println!("session exit status: {}", tcp_channel.exit_status()?);
 Ok(())
 }
 
-
 #[test]
-fn runs() {
-
+fn runs_ok() {
+    
     
 }
