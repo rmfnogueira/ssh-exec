@@ -1,5 +1,5 @@
-use std::net::TcpStream;
-use std::io::prelude::*;
+use tokio::net::{TcpListener, TcpStream};
+use tokio::io::Result;
 use ssh2::Session;
 use clap::Parser;
 use rpassword::read_password;
@@ -18,36 +18,44 @@ struct Cli {
 
     /// Ipv4Adress and TCP Port
     #[arg(short, long, default_value = "127.0.0.1:22")]
-    socket: String
+    hosts: Vec<String>
     // TODO => Accept multiple sockets to run commands on, assuming same username and password on multiple systems
 }
 
-
 /// ssh-exec
-fn main() -> Result<(), std::io::Error> {
-    
+fn run() -> Result<()> {
     let args = Cli::parse();
     
     // handle and make mandatory, as argument
     println!("Please enter {}'s password", &args.username);
     let pass =  read_password()?;
     
-    let tcp_stream = TcpStream::connect(args.socket.to_string())?;
-// todo : add parameters or args via cli
+    let hosts = args.hosts;
 
-    let mut tcp_session = Session::new()?;
-    tcp_session.set_tcp_stream(tcp_stream);
-    tcp_session.handshake()?;
-    tcp_session.userauth_password(&args.username.to_string(), &pass)?; // get password on command line, all other args in config file
-    let mut tcp_channel = tcp_session.channel_session()?;
-    tcp_channel.exec(&args.command)?;
-    let mut s = String::new();
-    tcp_channel.read_to_string(&mut s)?;
-    println!("{}", s);
-    tcp_channel.wait_close()?;
-    // println!("session exit status: {}", tcp_channel.exit_status()?);
-Ok(())
+    for host in hosts.iter() {
+        let tcp_stream = TcpStream::connect(args.socket.to_string())?;
+        // todo : add parameters or args via cli
+    
+        let mut tcp_session = Session::new()?;
+        tcp_session.set_tcp_stream(tcp_stream);
+        tcp_session.handshake()?;
+        tcp_session.userauth_password(&args.username.to_string(), &pass)?; // get password on command line, all other args in config file
+        let mut tcp_channel = tcp_session.channel_session()?;
+        tcp_channel.exec(&args.command)?;
+        let mut s = String::new();
+        tcp_channel.read_to_string(&mut s)?;
+        println!("{}", s);
+        tcp_channel.wait_close()?;
+        // println!("session exit status: {}", tcp_channel.exit_status()?);
+    }
+    Ok(())
 }
+
+#[tokio::main]
+async fn main() -> Result<()> {
+    run().await
+}
+
 
 #[test]
 fn runs_ok() {

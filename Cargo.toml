@@ -9,4 +9,4 @@ edition = "2021"
 clap = {version = "4.2.1", features = ["derive"] }
 rpassword = "7.2.0"
 ssh2 = "0.9.4"
-tokio = "1.27.0"
+tokio = {version = "1.27.0", features = ["full"] }
