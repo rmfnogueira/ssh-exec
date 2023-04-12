@@ -1,5 +1,5 @@
 use tokio::net::{TcpListener, TcpStream};
-use tokio::io::Result;
+use tokio::io::{Stdout,Result};
 use ssh2::Session;
 use clap::Parser;
 use rpassword::read_password;
@@ -40,13 +40,16 @@ fn run() -> Result<()> {
         tcp_session.set_tcp_stream(tcp_stream);
         tcp_session.handshake()?;
         tcp_session.userauth_password(&args.username.to_string(), &pass)?; // get password on command line, all other args in config file
-        let mut tcp_channel = tcp_session.channel_session()?;
-        tcp_channel.exec(&args.command)?;
+        
+        let mut channel = tcp_session.channel_session()?;
+        channel.exec(&args.command)?;
+        
         let mut s = String::new();
-        tcp_channel.read_to_string(&mut s)?;
+        channel.read_to_string(&mut s)?;
+        
         println!("{}", s);
-        tcp_channel.wait_close()?;
-        // println!("session exit status: {}", tcp_channel.exit_status()?);
+        channel.wait_close()?;
+        println!("session exit status: {}", channel.exit_status()?);
     }
     Ok(())
 }
