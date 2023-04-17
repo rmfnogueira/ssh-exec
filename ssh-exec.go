@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	hosts := []string{"10.10.0.1"}
+	hosts := []string{"10.10.21.64"}
 
 	var wg sync.WaitGroup
 	for _, host := range hosts {
@@ -24,12 +24,11 @@ func main() {
 	wg.Wait()
 }
 
-// run
 func runCommand(host string) error {
 	config := &ssh.ClientConfig{
-		User: "name",
+		User: "rui",
 		Auth: []ssh.AuthMethod{
-			ssh.Password("pass"),
+			ssh.Password("ksji@123"),
 		},
 		HostKeyCallback: anyHostKey(),
 	}
@@ -46,15 +45,27 @@ func runCommand(host string) error {
 	}
 	defer session.Close()
 
-	out, err := session.CombinedOutput("ls")
-	if err != nil {
+	outChan := make(chan string)
+	errChan := make(chan error)
+
+	go func() {
+		out, err := session.CombinedOutput("ls")
+		if err != nil {
+			errChan <- err
+			return
+		}
+		outChan <- string(out)
+	}()
+
+	select {
+	case out := <-outChan:
+		fmt.Printf("Host: %s\nOutput:\n%s\n", host, out)
+		return nil
+	case err := <-errChan:
 		return err
 	}
-	fmt.Printf("Host: %s\nOutput:\n%s\n", host, out)
-	return nil
 }
 
-// handle return key
 func anyHostKey() ssh.HostKeyCallback {
 	return func(hostname string, remote net.Addr, key ssh.PublicKey) error {
 		return nil
