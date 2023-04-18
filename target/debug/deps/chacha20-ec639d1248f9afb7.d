@@ -1,0 +1,13 @@
+/home/rui/dev/ssh-exec/target/debug/deps/chacha20-ec639d1248f9afb7.rmeta: /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/lib.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/legacy.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/xchacha.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends/soft.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends/avx2.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends/sse2.rs
+
+/home/rui/dev/ssh-exec/target/debug/deps/libchacha20-ec639d1248f9afb7.rlib: /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/lib.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/legacy.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/xchacha.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends/soft.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends/avx2.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends/sse2.rs
+
+/home/rui/dev/ssh-exec/target/debug/deps/chacha20-ec639d1248f9afb7.d: /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/lib.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/legacy.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/xchacha.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends/soft.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends/avx2.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends/sse2.rs
+
+/home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/lib.rs:
+/home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends.rs:
+/home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/legacy.rs:
+/home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/xchacha.rs:
+/home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends/soft.rs:
+/home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends/avx2.rs:
+/home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/chacha20-0.9.1/src/backends/sse2.rs:

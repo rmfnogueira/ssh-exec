@@ -1,0 +1,12 @@
+/home/rui/dev/ssh-exec/target/debug/deps/io_lifetimes-0b9cd8c1bbbc4cb2.rmeta: /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/lib.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/portability.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/traits.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/example_ffi.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/raw.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/views.rs
+
+/home/rui/dev/ssh-exec/target/debug/deps/libio_lifetimes-0b9cd8c1bbbc4cb2.rlib: /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/lib.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/portability.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/traits.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/example_ffi.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/raw.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/views.rs
+
+/home/rui/dev/ssh-exec/target/debug/deps/io_lifetimes-0b9cd8c1bbbc4cb2.d: /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/lib.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/portability.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/traits.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/example_ffi.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/raw.rs /home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/views.rs
+
+/home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/lib.rs:
+/home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/portability.rs:
+/home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/traits.rs:
+/home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/example_ffi.rs:
+/home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/raw.rs:
+/home/rui/.cargo/registry/src/github.com-1ecc6299db9ec823/io-lifetimes-1.0.10/src/views.rs:

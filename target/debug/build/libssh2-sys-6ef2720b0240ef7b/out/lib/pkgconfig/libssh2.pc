@@ -1,0 +1,17 @@
+###########################################################################
+# libssh2 installation details
+###########################################################################
+
+prefix=/home/rui/dev/ssh-exec/target/debug/build/libssh2-sys-6ef2720b0240ef7b/out
+exec_prefix=
+libdir=/home/rui/dev/ssh-exec/target/debug/build/libssh2-sys-6ef2720b0240ef7b/out/lib
+includedir=/home/rui/dev/ssh-exec/target/debug/build/libssh2-sys-6ef2720b0240ef7b/out/include
+
+Name: libssh2
+URL: https://www.libssh2.org/
+Description: Library for SSH-based communication
+Version: 1.10.1_DEV
+Requires.private: 
+Libs: -L${libdir} -lssh2 
+Libs.private: 
+Cflags: -I${includedir}
